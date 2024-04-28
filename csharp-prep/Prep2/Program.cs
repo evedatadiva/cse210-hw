@@ -34,10 +34,8 @@ class Program
                 letterGrade = 'F';
             }
 
-            // Print the determined letter grade
             Console.WriteLine("Your letter grade is: " + letterGrade);
 
-            // Check if the user passed the course
             if (gradePercentage >= 70)
             {
                 Console.WriteLine("Congratulations! You passed the course.");
