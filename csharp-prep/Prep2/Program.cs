@@ -4,15 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Asking at the user for their grade percentage
-        Console.WriteLine("Enter your grade percentage:");
+        
+        Console.WriteLine("Enter your grade percentage: ");
 
-        // Read user input and attempt to parse it as a double
+        
         if (double.TryParse(Console.ReadLine(), out double gradePercentage))
         {
             char letterGrade;
 
-            // Determine the letter grade based on the percentage
+            
             if (gradePercentage >= 90)
             {
                 letterGrade = 'A';
@@ -35,9 +35,9 @@ class Program
             }
 
             // Print the determined letter grade
-            Console.WriteLine($"Your letter grade is: {letterGrade}");
+            Console.WriteLine("Your letter grade is: " + letterGrade);
 
-            // Check if the user passed the course (passing grade >= 70)
+            // Check if the user passed the course
             if (gradePercentage >= 70)
             {
                 Console.WriteLine("Congratulations! You passed the course.");
