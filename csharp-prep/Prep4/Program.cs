@@ -7,11 +7,11 @@ class Program
     {
         List<int> numbers = new List<int>();
 
-        Console.WriteLine("Please write a list of numbers, type 0 when you finish.");
+        Console.WriteLine("Please enter a list of numbers, type 0 when you finish.");
 
         while (true)
         {
-            Console.Write("Please write the number: ");
+            Console.Write("Enter number: ");
             string input = Console.ReadLine();
 
             if (int.TryParse(input, out int number))
