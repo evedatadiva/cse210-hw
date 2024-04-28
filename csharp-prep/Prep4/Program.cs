@@ -7,7 +7,6 @@ class Program
     {
         List<int> numbers = new List<int>();
 
-        // Ask the user to enter a list of numbers
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
 
         while (true)
@@ -19,9 +18,9 @@ class Program
             {
                 if (number == 0)
                 {
-                    break; // Exit the loop if 0 is entered
+                    break; 
                 }
-                numbers.Add(number); // Add the number to the list
+                numbers.Add(number); 
             }
             else
             {
@@ -38,7 +37,9 @@ class Program
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {maxNumber}");
-
+        
+        // tricky
+        
         int smallestPositive = numbers.Where(n => n > 0).DefaultIfEmpty(0).Min();
         Console.WriteLine($"The smallest positive number is: {smallestPositive}");
 
