@@ -3,99 +3,115 @@ using System.Collections.Generic;
 
 class Address
 {
-    public string Street { get; private set; }
-    public string City { get; private set; }
-    public string State { get; private set; }
-    public string Country { get; private set; }
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
+
+    public string Street { get { return _street; } }
+    public string City { get { return _city; } }
+    public string State { get { return _state; } }
+    public string Country { get { return _country; } }
 
     public Address(string street, string city, string state, string country)
     {
-        Street = street;
-        City = city;
-        State = state;
-        Country = country;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
     public bool IsInUSA()
     {
-        return Country.ToLower() == "usa";
+        return _country.ToLower() == "usa";
     }
 
     public string GetFullAddress()
     {
-        return $"{Street}\n{City}, {State}\n{Country}";
+        return $"{_street}\n{_city}, {_state}\n{_country}";
     }
 }
 
 class Customer
 {
-    public string Name { get; private set; }
-    public Address Address { get; private set; }
+    private string _name;
+    private Address _address;
+
+    public string Name { get { return _name; } }
+    public Address Address { get { return _address; } }
 
     public Customer(string name, Address address)
     {
-        Name = name;
-        Address = address;
+        _name = name;
+        _address = address;
     }
 
     public bool IsInUSA()
     {
-        return Address.IsInUSA();
+        return _address.IsInUSA();
     }
 }
 
 class Product
 {
-    public string Name { get; private set; }
-    public string ProductId { get; private set; }
-    public decimal Price { get; private set; }
-    public int Quantity { get; private set; }
+    private string _name;
+    private string _productId;
+    private decimal _price;
+    private int _quantity;
+
+    public string Name { get { return _name; } }
+    public string ProductId { get { return _productId; } }
+    public decimal Price { get { return _price; } }
+    public int Quantity { get { return _quantity; } }
 
     public Product(string name, string productId, decimal price, int quantity)
     {
-        Name = name;
-        ProductId = productId;
-        Price = price;
-        Quantity = quantity;
+        _name = name;
+        _productId = productId;
+        _price = price;
+        _quantity = quantity;
     }
 
     public decimal GetTotalCost()
     {
-        return Price * Quantity;
+        return _price * _quantity;
     }
 }
 
 class Order
 {
-    public List<Product> Products { get; private set; } = new List<Product>();
-    public Customer Customer { get; private set; }
+    private List<Product> _products = new List<Product>();
+    private Customer _customer;
+
+    public List<Product> Products { get { return _products; } }
+    public Customer Customer { get { return _customer; } }
 
     public Order(Customer customer)
     {
-        Customer = customer;
+        _customer = customer;
     }
 
     public void AddProduct(Product product)
     {
-        Products.Add(product);
+        _products.Add(product);
     }
 
     public decimal GetTotalCost()
     {
         decimal totalCost = 0;
-        foreach (var product in Products)
+        foreach (var product in _products)
         {
             totalCost += product.GetTotalCost();
         }
 
-        totalCost += Customer.IsInUSA() ? 5 : 35;
+        totalCost += _customer.IsInUSA() ? 5 : 35;
         return totalCost;
     }
 
     public string GetPackingLabel()
     {
         string packingLabel = "Packing Label:\n";
-        foreach (var product in Products)
+        foreach (var product in _products)
         {
             packingLabel += $"Name: {product.Name}, Product ID: {product.ProductId}\n";
         }
@@ -104,7 +120,7 @@ class Order
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n{Customer.Name}\n{Customer.Address.GetFullAddress()}";
+        return $"Shipping Label:\n{_customer.Name}\n{_customer.Address.GetFullAddress()}";
     }
 }
 

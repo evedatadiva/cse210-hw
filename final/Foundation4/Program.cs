@@ -26,7 +26,7 @@ class Activity
 
     public virtual string GetSummary()
     {
-        return $"{Date.ToString("dd MMM yyyy")} - {LengthInMinutes} min";
+        return $"{Date.ToString("MMM dd yyyy")} - {LengthInMinutes} min";
     }
 }
 class Running : Activity
@@ -82,7 +82,7 @@ class Cycling : Activity
     }
     public override double GetPace()
     {
-        // minutes per kilometer
+        // minutos per kilometer
         return 60.0 / SpeedInKph; 
     }
 
