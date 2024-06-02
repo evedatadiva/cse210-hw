@@ -79,7 +79,6 @@ class Reception : Event
         return $"{GetStandardDetails()}\nType: Reception\nRSVP: {RSVP}";
     }
 }
-
 class OutdoorGathering : Event
 {
     public string Weather { get; private set; }
@@ -95,7 +94,6 @@ class OutdoorGathering : Event
         return $"{GetStandardDetails()}\nType: Outdoor Gathering\nWeather: {Weather}";
     }
 }
-
 class Program
 {
     static void Main(string[] args)

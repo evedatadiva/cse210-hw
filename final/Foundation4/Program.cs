@@ -7,6 +7,7 @@ class Activity
     public Activity(DateTime date, int lengthInMinutes)
     {
         Date = date;
+
         LengthInMinutes = lengthInMinutes;
     }
     public virtual double GetDistance()
@@ -77,12 +78,12 @@ class Cycling : Activity
 
     public override double GetDistance()
     {
-        // Speed (km/h) * time (hours)
+        // Speed (km/h) * time (hourss)
         return SpeedInKph * (LengthInMinutes / 60.0);
     }
     public override double GetPace()
     {
-        // minutos per kilometer
+        // minutos per kilometer.
         return 60.0 / SpeedInKph; 
     }
 
