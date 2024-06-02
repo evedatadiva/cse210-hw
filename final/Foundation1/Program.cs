@@ -28,6 +28,7 @@ class Video
     public void AddComment(Comment comment)
     {
         Comments.Add(comment);
+
     }
 
     public int GetNumberOfComments()
@@ -53,9 +54,9 @@ class Program
     {
         var videos = new List<Video>
         {
-            new Video("Video 1", "Author´video number 1", 300),
-            new Video("Video 2", "Author´video number 2", 420),
-            new Video("Video 3", "Author´video number 3", 180)
+            new Video("Video 1 first", "Author´video number 1", 300),
+            new Video("Video 2 second", "Author´video number 2", 420),
+            new Video("Video 3 third", "Author´video number 3", 180)
         };
 
         videos[0].AddComment(new Comment("User number 1", "Great!"));
