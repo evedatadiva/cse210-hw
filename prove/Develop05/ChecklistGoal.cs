@@ -1,3 +1,5 @@
+using System;
+
 namespace EternalQuest
 {
     public class ChecklistGoal : Goal
@@ -18,7 +20,7 @@ namespace EternalQuest
             CurrentCount++;
             if (CurrentCount >= TargetCount)
             {
-                CurrentCount = 0; 
+                CurrentCount = 0;
                 return Points + BonusPoints;
             }
             return Points;
@@ -35,4 +37,5 @@ namespace EternalQuest
         }
     }
 }
+
 

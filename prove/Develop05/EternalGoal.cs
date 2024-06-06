@@ -1,3 +1,5 @@
+using System;
+
 namespace EternalQuest
 {
     public class EternalGoal : Goal
@@ -10,4 +12,5 @@ namespace EternalQuest
         }
     }
 }
+
 

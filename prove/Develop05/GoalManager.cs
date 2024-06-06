@@ -56,16 +56,20 @@ namespace EternalQuest
 
         public void LoadGoals(string filePath)
         {
-            using (StreamReader reader = new StreamReader(filePath))
+            if (File.Exists(filePath))
             {
-                score = int.Parse(reader.ReadLine());
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                using (StreamReader reader = new StreamReader(filePath))
                 {
-                    Goal goal = Goal.FromString(line);
-                    goals.Add(goal);
+                    score = int.Parse(reader.ReadLine());
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        Goal goal = Goal.FromString(line);
+                        goals.Add(goal);
+                    }
                 }
             }
         }
     }
 }
+

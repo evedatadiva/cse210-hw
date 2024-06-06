@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.IO;
-using System.Collections.Generic;
 
 namespace EternalQuest
 {
@@ -12,7 +11,6 @@ namespace EternalQuest
             GoalManager manager = new GoalManager();
             string filePath = "goals.txt";
 
-            
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
                 manager.LoadGoals(filePath);
@@ -28,7 +26,7 @@ namespace EternalQuest
                 Console.WriteLine("Eternal Quest Program");
                 Console.WriteLine("---------------------");
                 Console.WriteLine($"Score: {manager.GetScore()}\n");
-                
+
                 if (manager.GetScore() != 0)
                 {
                     Console.Write("Loading ");
@@ -133,3 +131,4 @@ namespace EternalQuest
         }
     }
 }
+

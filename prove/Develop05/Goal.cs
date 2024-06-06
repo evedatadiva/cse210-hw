@@ -26,7 +26,7 @@ namespace EternalQuest
 
         public static Goal FromString(string goalString)
         {
-            string[] parts = goalString.Split(':');
+            string[] parts = goalString.Split('|');
             string type = parts[0];
             string description = parts[1];
             int points = int.Parse(parts[2]);
@@ -38,9 +38,8 @@ namespace EternalQuest
                 case nameof(EternalGoal):
                     return new EternalGoal(description, points);
                 case nameof(ChecklistGoal):
-                    int targetCount = int.Parse(parts[3]);
-                    int bonusPoints = int.Parse(parts[4]);
-                    return new ChecklistGoal(description, points, targetCount, bonusPoints);
+                    
+                    return new ChecklistGoal(description, points, 0, 0); 
                 default:
                     throw new ArgumentException("Unknown goal type");
             }
