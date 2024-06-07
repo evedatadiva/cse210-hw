@@ -1,4 +1,4 @@
-390
+490
 EternalGoal:pray:100
 SimpleGoal:ride a bike :30
 EternalGoal:read BOM. :60
