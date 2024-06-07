@@ -26,10 +26,26 @@ namespace EternalQuest
 
         public static Goal FromString(string goalString)
         {
-            string[] parts = goalString.Split('|');
+            if (string.IsNullOrWhiteSpace(goalString))
+            {
+                throw new ArgumentException("Goal string cannot be null or whitespace");
+            }
+
+            string[] parts = goalString.Split(':');
+            Console.WriteLine($"Parsing goal string: {goalString}");
+            Console.WriteLine($"Parts length: {parts.Length}");
+
+            if (parts.Length < 3)
+            {
+                throw new ArgumentException("Invalid goal string format");
+            }
+
             string type = parts[0];
             string description = parts[1];
-            int points = int.Parse(parts[2]);
+            if (!int.TryParse(parts[2], out int points))
+            {
+                throw new ArgumentException("Invalid points value");
+            }
 
             switch (type)
             {
@@ -38,13 +54,20 @@ namespace EternalQuest
                 case nameof(EternalGoal):
                     return new EternalGoal(description, points);
                 case nameof(ChecklistGoal):
-                    
-                    return new ChecklistGoal(description, points, 0, 0); 
+                    if (parts.Length != 6)
+                    {
+                        throw new ArgumentException("Invalid ChecklistGoal string format");
+                    }
+                    if (!int.TryParse(parts[3], out int targetCount) ||
+                        !int.TryParse(parts[4], out int bonusPoints) ||
+                        !int.TryParse(parts[5], out int currentCount))
+                    {
+                        throw new ArgumentException("Invalid ChecklistGoal values");
+                    }
+                    return new ChecklistGoal(description, points, targetCount, bonusPoints) { CurrentCount = currentCount };
                 default:
                     throw new ArgumentException("Unknown goal type");
             }
         }
     }
 }
-
-

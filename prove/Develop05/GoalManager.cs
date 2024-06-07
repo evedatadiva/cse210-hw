@@ -64,12 +64,18 @@ namespace EternalQuest
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        Goal goal = Goal.FromString(line);
-                        goals.Add(goal);
+                        try
+                        {
+                            Goal goal = Goal.FromString(line);
+                            goals.Add(goal);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error loading goal: {line}. Error: {ex.Message}");
+                        }
                     }
                 }
             }
         }
     }
 }
-

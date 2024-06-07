@@ -1,5 +1,8 @@
-100
-EternalGoal|pray|100
-SimpleGoal|ride a bike |30
-EternalGoal|read BOM. |60
-SimpleGoal|buy food for the cat|20
+390
+EternalGoal:pray:100
+SimpleGoal:ride a bike :30
+EternalGoal:read BOM. :60
+SimpleGoal:buy food for the cat:20
+SimpleGoal:less social media:30
+SimpleGoal:less tv:10
+SimpleGoal:write emails:15
